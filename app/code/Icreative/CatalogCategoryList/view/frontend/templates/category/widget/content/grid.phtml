@@ -13,22 +13,10 @@ $title = $block->getTitle() ? __($block->getTitle()) : 'Categories';
     <?php foreach($categories as $category):?>
         <span class="category">
 
-<!--            --><?php
+<?php
 //            var_dump($category->debug());
 //die()
 
-            //            $_imgHtml   = '';
-//            if ($_imgUrl = $block->getImage()->getUrl($category)) {
-//                $_imgHtml = '<div class="category-image"><img src="'
-//                    . $block->escapeUrl($_imgUrl)
-//                    . '" alt="'
-//                    . $block->escapeHtmlAttr($category->getName())
-//                    . '" title="'
-//                    . $block->escapeHtmlAttr($category->getName())
-//                    . '" class="image" /></div>';
-//                $_imgHtml = $block->getOutput()->categoryAttribute($category, $_imgHtml, 'image');
-//                /* @noEscape */ echo $_imgHtml;
-//            }
 //            ?>
         	<a href="<?php echo $block->escapeUrl($category->getUrl()) ?>" class="homepage-category">
             		<?php if($category->getImage()):?>
