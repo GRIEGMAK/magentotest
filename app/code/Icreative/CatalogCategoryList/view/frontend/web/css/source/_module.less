@@ -1,0 +1,28 @@
+& when (@media-common = true) {
+    @media (min-width: 640px) {
+        #product-item-info:not(:hover):not(.active), #product-item-inner {
+            margin: auto;
+            overflow: visible;
+            clip: auto;
+            position: static;
+            padding: inherit;
+            width: auto;
+            border: 0;
+            box-shadow: none;
+            height: auto;
+        }
+        #product-item-inner {
+            margin: auto;
+            position: static;
+        }
+        #product-item-info:hover{
+            background: #ffffff;
+            box-shadow: none;
+            border: none;
+            margin: auto;
+            padding: 0;
+            position: static;
+            z-index: 9;
+        }
+    }
+}

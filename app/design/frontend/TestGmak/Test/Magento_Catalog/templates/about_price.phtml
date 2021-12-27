@@ -1,0 +1,19 @@
+<?php
+/** @var Icreative\Catalog\Block\AboutPrice $block*/
+
+$myBlock = \Magento\Framework\App\ObjectManager::getInstance()->get('Icreative\Catalog\Block\AboutPrice');
+
+?>
+
+
+<div>
+    <?php
+        if ($currentProduct = $myBlock->getCurrentProduct()) {
+            if($currentProduct->getFinalPrice() < 20000 ){
+    ?>
+    <span>Good price</span>
+    <?php } else {?>
+    <span>Bad price</span>
+    <?php }} ?>
+</div>
+

@@ -1,0 +1,8 @@
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
+    <container name="sidebar.additional" label="Sidebar Additional" htmlTag="div"/>
+    <referenceContainer name="sidebar.additional" remove="true"/>
+    <container name="sidebar.main" label="Sidebar Main" htmlTag="div"/>
+    <referenceContainer name="sidebar.main"/>
+    <container name="product.info.main" label="Product Info Main" />
+    <referenceContainer name="product.info.main" remove="true" />
+</layout>
