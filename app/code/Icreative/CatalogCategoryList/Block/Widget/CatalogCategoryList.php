@@ -40,18 +40,10 @@ class CatalogCategoryList extends \Magento\Framework\View\Element\Template imple
     public function getCategoryCollection()
     {
         $collection = $this->_categoryRepository->create();
-        $collection->addAttributeToSelect(array("image", "level", "name" ));
+        $collection->addAttributeToSelect(array("image", "level", "name"));
         $collection->addFieldToFilter('level', '2');
         $collection->setPageSize(10);
         return $collection;
 
-    }
-
-    public function canShowImage()
-    {
-        if ($this->getData('image') == 'image')
-            return true;
-        elseif ($this->getData('image') == 'no-image')
-            return false;
     }
 }
