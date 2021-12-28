@@ -6,8 +6,5 @@
 -->
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <container name="content_main_banner">
-            <block name="icreative.test.banner-header" class="Icreative\Cms\Block\BannerHeader" template="Magento_Cms::banner-masonry.phtml" />
-        </container>
     </body>
 </page>

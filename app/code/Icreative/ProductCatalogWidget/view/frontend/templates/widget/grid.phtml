@@ -73,7 +73,7 @@ use Magento\Framework\App\Action\Action;
                                                             <?= $block->getBlockHtml('formkey') ?>
                                                             <button type="submit"
                                                                     title="<?= $block->escapeHtml(__('Add to cart')) ?>"
-                                                                    class="action tocart primary">
+                                                                    class="action tocart primary add-to-card-button">
                                                                 <span><?= $block->escapeHtml(__('Add to cart')) ?></span>
                                                             </button>
                                                         </form>
@@ -124,3 +124,10 @@ use Magento\Framework\App\Action\Action;
     </script>
     <?php endif;?>
 <?php endif;?>
+<!--<script type="text/x-magento-init">-->
+<!--    {-->
+<!--        "*": {-->
+<!--            "Icreative_ProductCatalogWidget/js/custom_appearance": {}-->
+<!--        }-->
+<!--    }-->
+<!--</script>-->
