@@ -3,28 +3,40 @@ $categories = $block->getCategoryCollection();
 $title = $block->getTitle() ? __($block->getTitle()) : __('Categories');
 
 ?>
-<?php if ($title):?>
-    <div class="block-title">
-        <strong><?php echo $block->escapeHtml($title) ?></strong>
+<div class="categories">
+    <?php if ($title):?>
+        <div class="block-title">
+            <strong><?php echo $block->escapeHtml($title) ?></strong>
+        </div>
+    <?php endif ?>
+    <div class="block-content catalog-category homepage-categories-container">
+        <?php foreach($categories as $category):?>
+        <div class="output-category">
+            <?php $productsCollection = $category->getProductCollection(); ?>
+            <span class="category">
+                <a href="<?php echo $block->escapeUrl($category->getUrl()) ?>" class="homepage-category">
+                        <?php if($category->getImage()):?>
+                            <div><img src="<?php echo $category->getImage() ?>" alt="" ></div>
+                            <div>
+                                <span class="cat-title">
+                                    <?php echo $block->escapeHtml($category->getName()) ?>
+                                    <div class="count-product-category"><?php echo $productsCollection->getSize();?> products</div>
+                                </span>
+                            </div>
+                        <?php else:?>
+                            <div><img src="<?php echo $block->getViewFileUrl('/images/empty_image_category.jpg/')?>" alt="" ></div>
+                            <div>
+                                <span class="cat-title">
+                                    <?php echo $block->escapeHtml($category->getName()) ?>
+                                    <div class="count-product-category"><?php echo $productsCollection->getSize();?> products</div>
+                                </span>
+                            </div>
+                    <?php endif;?>
+                </a>
+            </span>
+        </div>
+        <?php
+        endforeach;
+        ?>
     </div>
-<?php endif ?>
-<div class="block-content catalog-category homepage-categories-container">
-    <?php foreach($categories as $category):?>
-        <?php $productsCollection = $category->getProductCollection(); ?>
-        <span class="category">
-        	<a href="<?php echo $block->escapeUrl($category->getUrl()) ?>" class="homepage-category">
-            		<?php if($category->getImage()):?>
-                        <div><img src="<?php echo $category->getImage() ?>" alt="" ></div>
-                        <div><span class="cat-title"><?php echo $block->escapeHtml($category->getName()) ?></span></div>
-                        <div><?php echo $productsCollection->getSize();?> products </div>
-                    <?php else:?>
-                        <div><img src="<?php echo $block->getViewFileUrl('/images/empty_image_category.jpg/')?>" alt="" ></div>
-                        <div><span class="cat-title"><?php echo $block->escapeHtml($category->getName()) ?></span></div>
-                                <div><?php echo $productsCollection->getSize();?> products </div>
-                <?php endif;?>
-        	</a>
-        </span>
-    <?php
-    endforeach;
-    ?>
 </div>

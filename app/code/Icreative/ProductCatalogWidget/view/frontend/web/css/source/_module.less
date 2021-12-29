@@ -1,6 +1,6 @@
 & when (@media-common = true) {
     @media (min-width: 640px) {
-        #product-item-info:not(:hover):not(.active), #product-item-inner {
+        .product-item-info:not(:hover):not(.active), .product-item-inner {
             margin: auto;
             overflow: visible;
             clip: auto;
@@ -11,11 +11,11 @@
             box-shadow: none;
             height: auto;
         }
-        #product-item-inner {
+        .product-item-inner {
             margin: auto;
             position: static;
         }
-        #product-item-info:hover{
+        .product-item-info:hover{
             background: #ffffff;
             box-shadow: none;
             border: none;
@@ -24,15 +24,53 @@
             position: static;
             z-index: 9;
         }
-        .add-to-card-button.action {
+        .product-item-info .add-to-card-button.action {
             color: #212529;
             background: #eeeeee;
             border: 1px solid #cccccc;
-            &:hover {
-                background: #1979c3;
-                border: 1px solid #1979c3;
-                color: #ffffff;
             }
+        .product-item-info .add-compire-wishlist {
+            visibility: hidden;
+        }
+        .product-item-info.focus-item .add-to-card-button.action {
+            background: #1979c3;
+            border: 1px solid #1979c3;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+        .product-item-info.focus-item .add-compire-wishlist {
+            visibility: visible;
+        }
+        .product-item-info .weltpixel-quickview.weltpixel_quickview_button_v2 {
+            padding: 0;
+            bottom: 0;
+            top: auto;
+            left: 0;
+            width: 100%;
+            text-indent: 0;
+            background-color: #65829D;
+            height: auto;
+            border: none;
+            //position: absolute;
+            z-index: 6;
+            //opacity: 0;
+            visibility: hidden;
+            //background-color: #08c;
+            color: #fff;
+            display: block;
+            text-transform: uppercase;
+            font-size: 13px;
+            line-height: 34px;
+            transition: .25s;
+            text-align: center;
+        }
+        .product-item-info.focus-item .weltpixel-quickview.weltpixel_quickview_button_v2 {
+            visibility: visible;
+        }
+        .product-item-info img {
+        }
+        .product-item-info.focus-item img {
+            transform: scale(-1, 1)
         }
     }
 }

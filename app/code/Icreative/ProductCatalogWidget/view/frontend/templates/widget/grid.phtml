@@ -44,6 +44,12 @@ use Magento\Framework\App\Action\Action;
                             <a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>" class="product-item-photo">
                                 <?= $block->getImage($_item, $image)->toHtml() ?>
                             </a>
+                            <a class="weltpixel-quickview weltpixel_quickview_button_v2"
+                               href="javascript:void(0);">
+                                <span>
+                                    <span>Quickview</span>
+                                </span>
+                            </a>
                             <div class="product-item-details">
                                 <strong class="product-item-name">
                                     <a title="<?= $block->escapeHtml($_item->getName()) ?>"
@@ -87,7 +93,7 @@ use Magento\Framework\App\Action\Action;
                                                 </div>
                                             <?php endif; ?>
                                             <?php if ($showWishlist || $showCompare): ?>
-                                                <div class="actions-secondary" data-role="add-to-links">
+                                                <div class="actions-secondary add-compire-wishlist" data-role="add-to-links">
                                                     <?php if ($this->helper(\Magento\Wishlist\Helper\Data::class)->isAllow() && $showWishlist): ?>
                                                         <a href="#"
                                                            data-post='<?= /* @noEscape */ $block->getAddToWishlistParams($_item) ?>' class="action towishlist" data-action="add-to-wishlist" title="<?= $block->escapeHtmlAttr(__('Add to Wish List')) ?>">
@@ -124,10 +130,10 @@ use Magento\Framework\App\Action\Action;
     </script>
     <?php endif;?>
 <?php endif;?>
-<!--<script type="text/x-magento-init">-->
-<!--    {-->
-<!--        "*": {-->
-<!--            "Icreative_ProductCatalogWidget/js/custom_appearance": {}-->
-<!--        }-->
-<!--    }-->
-<!--</script>-->
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Icreative_ProductCatalogWidget/js/custom_appearance": {}
+        }
+    }
+</script>
