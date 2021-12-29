@@ -20,7 +20,13 @@ $title = $block->getTitle() ? __($block->getTitle()) : __('Categories');
                             <div>
                                 <span class="cat-title">
                                     <?php echo $block->escapeHtml($category->getName()) ?>
-                                    <div class="count-product-category"><?php echo $productsCollection->getSize();?> products</div>
+                                    <div class="count-product-category"><?php echo $productsCollection->getSize();?>
+                                        <?php if($productsCollection->getSize() == 1){?>
+                                            product
+                                        <?php } else {?>
+                                            products
+                                        <?php }?>
+                                    </div>
                                 </span>
                             </div>
                         <?php else:?>
@@ -28,7 +34,13 @@ $title = $block->getTitle() ? __($block->getTitle()) : __('Categories');
                             <div>
                                 <span class="cat-title">
                                     <?php echo $block->escapeHtml($category->getName()) ?>
-                                    <div class="count-product-category"><?php echo $productsCollection->getSize();?> products</div>
+                                    <div class="count-product-category"><?php echo $productsCollection->getSize();?>
+                                        <?php if($productsCollection->getSize() == 1){?>
+                                            product
+                                        <?php } else {?>
+                                            products
+                                        <?php }?>
+                                    </div>
                                 </span>
                             </div>
                     <?php endif;?>
