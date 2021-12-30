@@ -18,5 +18,13 @@
             <referenceBlock class="Magento\Theme\Block\Html\Title" name="page.main.title" template="Magento_Theme::html/title.phtml" remove="true"/>
         </referenceContainer>
         <referenceContainer name="product-item" remove="true"/>
+        <referenceContainer name="main.content" >
+            <block name="icreative.products.sortBy.bestselling" class="Icreative\CatalogProductsListOrder\Block\Widget\CatalogProductsListOrder" template="Icreative_CatalogProductsListOrder::category/widget/content/grid.phtml" >
+                <arguments>
+                    <argument name="paramSortBy" xsi:type="string">price</argument>
+                </arguments>
+            </block>
+
+        </referenceContainer>
     </body>
 </page>
