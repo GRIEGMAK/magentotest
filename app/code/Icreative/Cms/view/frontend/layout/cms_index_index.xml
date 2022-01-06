@@ -13,18 +13,11 @@
         <referenceContainer name="main.content" >
             <block name="icreative.test.banner.header.main" class="Icreative\Cms\Block\BannerHeader" template="Icreative_Cms::banner-masonry.phtml" before="columns.top" />
             <referenceContainer name="columns" remove="false" />
+            <block name="icreative.products.sortBy.bestselling" class="Icreative\CatalogProductsListOrder\Block\CatalogProductsListOrder" template="Icreative_CatalogProductsListOrder::grid.phtml"/>
         </referenceContainer>
         <referenceContainer name="columns.top">
             <referenceBlock class="Magento\Theme\Block\Html\Title" name="page.main.title" template="Magento_Theme::html/title.phtml" remove="true"/>
         </referenceContainer>
         <referenceContainer name="product-item" remove="true"/>
-        <referenceContainer name="main.content" >
-            <block name="icreative.products.sortBy.bestselling" class="Icreative\CatalogProductsListOrder\Block\Widget\CatalogProductsListOrder" template="Icreative_CatalogProductsListOrder::category/widget/content/grid.phtml" >
-                <arguments>
-                    <argument name="paramSortBy" xsi:type="string">price</argument>
-                </arguments>
-            </block>
-
-        </referenceContainer>
     </body>
 </page>

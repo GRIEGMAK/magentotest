@@ -1,25 +1,34 @@
 <?php
-namespace Icreative\ProductListOrder\Block\Product;
+namespace Icreative\ProductsListOrder\Block\Product;
 
+use Magento\Catalog\Model\ProductRepository;
 use Magento\Catalog\Model\ResourceModel\Product\Collection;
 use Magento\CatalogWidget\Block\Product\ProductsList;
+use Magento\Framework\Api\Search\SearchCriteriaFactory;
+use Magento\Framework\Api\SearchCriteriaInterface;
+use Magento\Framework\View\Element\Template;
+use Magento\Widget\Block\BlockInterface;
 
 /**
  * Class ProductsOrderList
  */
-class ProductsOrderList
+class ProductsListOrder
 {
+    /**
+     * @var ProductRepository
+     */
+    protected $_productRepository;
 
     /**
-     * @param ProductsList $subject
-     * @param Collection $result
-     * @return Collection
-     * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+     * @var SearchCriteriaInterface
      */
-    public function afterCreateCollection(ProductsList $subject, Collection $result)
-    {
-        $result->getSelect()->order('cat_index_position asc');
 
-        return $result;
-    }
+    protected $_searchCriteria;
+
+    /**
+     * @param ProductRepositoryFactory $productRepositoryFactory
+     * @param SearchCriteriaFactory $searchCriteriaFactory
+     */
+
+
 }

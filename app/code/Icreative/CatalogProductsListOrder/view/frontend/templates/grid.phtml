@@ -3,22 +3,23 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
-
 use Magento\Framework\App\Action\Action;
-$paramSortBy = $block -> getData("paramSortBy");
+
+
 ?>
     <?php
     $type = 'widget-product-grid';
-
     $mode = 'grid';
     $image = 'new_products_content_widget_grid';
-    $items = $block->getProductCollection()->getItems();
+    $items = $this->getProductRepository();
     $showWishlist = true;
     $showCompare = true;
     $showCart = true;
     $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
     $description = false;
     ?>
+
+<?php if (count($items)): ?>
     <div class="block widget block-products-list <?= /* @noEscape */ $mode ?>">
         <?php if ($block->getTitle()): ?>
             <div class="block-title">
@@ -31,12 +32,10 @@ $paramSortBy = $block -> getData("paramSortBy");
                 <ol class="product-items <?= /* @noEscape */ $type ?>">
                     <?php $iterator = 1; ?>
                     <?php foreach ($items as $_item): ?>
-                        <?php if(is_null($_item)){ ?>
                         <?= /* @noEscape */ ($iterator++ == 1) ? '<li class="product-item">' : '</li><li class="product-item">' ?>
                         <div class="product-item-info" id="product-item-info">
-
                             <a href="<?= $block->escapeUrl($block->getProductUrl($_item)) ?>" class="product-item-photo">
-                                <?= $block->getImage($_item, $image)->toHtml() ?>
+
                             </a>
                             <a class="weltpixel-quickview weltpixel_quickview_button_v2"
                                href="javascript:void(0);">
@@ -67,9 +66,9 @@ $paramSortBy = $block -> getData("paramSortBy");
                                                 <div class="actions-primary">
                                                     <?php if ($_item->isSaleable()): ?>
                                                         <?php $postParams = $block->getAddToCartPostParams($_item); ?>
-                                                        <form data-role="tocart-form" data-product-sku="<?= $block->escapeHtml($_item->getSku()) ?>" action="<?= $block->escapeUrl($postParams['action']) ?>" method="post">
-                                                            <input type="hidden" name="product" value="<?= $block->escapeHtmlAttr($postParams['data']['product']) ?>">
-                                                            <input type="hidden" name="<?= /* @noEscape */ Action::PARAM_NAME_URL_ENCODED ?>" value="<?= /* @noEscape */ $postParams['data'][Action::PARAM_NAME_URL_ENCODED] ?>">
+                                                        <form data-role="tocart-form" data-product-sku="<?= $block->escapeHtml($_item->getSku()) ?>" action="" method="post">
+                                                            <input type="hidden" name="product" value="">
+                                                            <input type="hidden" name="<?= /* @noEscape */ Action::PARAM_NAME_URL_ENCODED ?>" value="">
                                                             <?= $block->getBlockHtml('formkey') ?>
                                                             <button type="submit"
                                                                     title="<?= $block->escapeHtml(__('Add to cart')) ?>"
@@ -108,7 +107,6 @@ $paramSortBy = $block -> getData("paramSortBy");
                             </div>
                         </div>
                         <?= ($iterator == count($items) + 1) ? '</li>' : '' ?>
-                        <?php } ?>
                     <?php endforeach ?>
                 </ol>
             </div>
@@ -124,6 +122,7 @@ $paramSortBy = $block -> getData("paramSortBy");
     }
     </script>
     <?php endif;?>
+<?php endif;?>
 
 <script type="text/x-magento-init">
     {
