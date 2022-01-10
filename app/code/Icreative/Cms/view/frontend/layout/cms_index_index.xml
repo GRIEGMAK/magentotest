@@ -13,7 +13,11 @@
         <referenceContainer name="main.content" >
             <block name="icreative.test.banner.header.main" class="Icreative\Cms\Block\BannerHeader" template="Icreative_Cms::banner-masonry.phtml" before="columns.top" />
             <referenceContainer name="columns" remove="false" />
-            <block name="icreative.products.sortBy.bestselling" class="Icreative\CatalogProductsListOrder\Block\CatalogProductsListOrder" template="Icreative_CatalogProductsListOrder::grid.phtml"/>
+            <container name="main.container.top.products" htmlTag="div" htmlClass="products-items-container-rated">
+                <block name="icreative.products.sortBy.bestselling" class="Icreative\CatalogProductsListOrder\Block\CatalogProductsListOrder" template="Icreative_CatalogProductsListOrder::grid.phtml"/>
+                <block name="icreative.products.sortBy.bestselling2" class="Icreative\CatalogProductsListOrder\Block\CatalogProductsListOrder" template="Icreative_CatalogProductsListOrder::grid.phtml"/>
+                <block name="icreative.products.sortBy.bestselling3" class="Icreative\CatalogProductsListOrder\Block\CatalogProductsListOrder" template="Icreative_CatalogProductsListOrder::grid.phtml"/>
+            </container>
         </referenceContainer>
         <referenceContainer name="columns.top">
             <referenceBlock class="Magento\Theme\Block\Html\Title" name="page.main.title" template="Magento_Theme::html/title.phtml" remove="true"/>
