@@ -14,9 +14,21 @@
             <block name="icreative.test.banner.header.main" class="Icreative\Cms\Block\BannerHeader" template="Icreative_Cms::banner-masonry.phtml" before="columns.top" />
             <referenceContainer name="columns" remove="false" />
             <container name="main.container.top.products" htmlTag="div" htmlClass="products-items-container-rated">
-                <block name="icreative.products.sortBy.bestselling" class="Icreative\CatalogProductsListOrder\Block\CatalogProductsListOrder" template="Icreative_CatalogProductsListOrder::grid.phtml"/>
-                <block name="icreative.products.sortBy.bestselling2" class="Icreative\CatalogProductsListOrder\Block\CatalogProductsListOrder" template="Icreative_CatalogProductsListOrder::grid.phtml"/>
-                <block name="icreative.products.sortBy.bestselling3" class="Icreative\CatalogProductsListOrder\Block\CatalogProductsListOrder" template="Icreative_CatalogProductsListOrder::grid.phtml"/>
+                <block name="icreative.products.sortBy.bestselling" class="Icreative\CatalogProductsListOrder\Block\CatalogProductsListOrder" template="Icreative_CatalogProductsListOrder::grid.phtml">
+                    <arguments>
+                        <argument name="sortingOption" xsi:type="string">bestSelling</argument>
+                    </arguments>
+                </block>
+                <block name="icreative.products.sortBy.bestselling2" class="Icreative\CatalogProductsListOrder\Block\CatalogProductsListOrder" template="Icreative_CatalogProductsListOrder::grid.phtml">
+                    <arguments>
+                        <argument name="sortingOption" xsi:type="string">topRated</argument>
+                    </arguments>
+                </block>
+                <block name="icreative.products.sortBy.bestselling3" class="Icreative\CatalogProductsListOrder\Block\CatalogProductsListOrder" template="Icreative_CatalogProductsListOrder::grid.phtml">
+                    <arguments>
+                        <argument name="sortingOption" xsi:type="string">feature</argument>
+                    </arguments>
+                </block>
             </container>
         </referenceContainer>
         <referenceContainer name="columns.top">
