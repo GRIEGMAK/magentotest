@@ -22,10 +22,6 @@ $_helper = $block->getData('outputHelper');
 $sortOption = $block->getData('sortingOption');
 //$block->setOrder($sortOption, 'ASC')
 ?>
-    <?php
-        var_dump($sortOption);
-
-    ?>
     <?= $block->getToolbarHtml() ?>
     <?= $block->getAdditionalHtml() ?>
     <?php
@@ -51,10 +47,7 @@ $sortOption = $block->getData('sortingOption');
         <ol class="products list items product-items products-sortby-rated">
             <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
             <?php foreach ($_productRepository as $_product): ?>
-                <?php $sales = $_product->getAttributeText('sales');
-                    var_dump($sales);
-                ?>
-
+                <?php $sales = $_product->getData('sales'); ?>
                 <li class="item product product-item">
                     <div class="product-item-info product-item-information"
                          id="product-item-info_<?= /* @noEscape */ $_product->getId() ?>"
